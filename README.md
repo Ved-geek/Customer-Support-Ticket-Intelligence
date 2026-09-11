@@ -54,7 +54,7 @@ Not currently hosted: the tuned Random Forest models are large (200 unconstraine
 
 ```
 01_EDA.ipynb                          - Combine, clean, verify, explore
-02_modeling_queue_and_priority.ipynb  - Features, model comparison, tuning, semantic search
+02_Modeling_and_prediction.ipynb      - Features, model comparison, tuning, semantic search
 app.py                                - Streamlit app
 requirements.txt                      - Dependencies for the app
 *.pkl                                 - Fitted models, encoders, and search index, exported from the modeling notebook
