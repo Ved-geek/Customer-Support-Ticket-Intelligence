@@ -19,11 +19,11 @@ Before any modeling, the cleaned dataset (about 21,000 rows, zero duplicate tick
 - **Chi-square testing between `queue` and `priority`**, confirming the two are not independent. Certain queues (Service Outages, Technical Support) skew heavily toward high priority, while others (General Inquiry, HR) skew low. This directly shaped a modeling decision: `priority`'s model does not use `queue` as an input feature, since predicting one target from another would be circular for a brand-new ticket.
 - **A side check on boilerplate language**: whether words like "dear," "customer," and "support" carried any real signal across queues. Chi-square testing showed these words are statistically associated with certain queues, but the effect is practically flat, an early example of a pattern that reappeared later with the `type` feature's contribution to the final models.
 
-## Text cleaning: a bugs worth naming
+## Text cleaning: a bug worth naming
 
-- **Negation bug**: the default English stopword list strips words like `not`, `no`, and contractions such as `isn't` and `won't`, which silently reversed ticket meaning - "software is not running" became "software running" after cleaning. This affected 12.3% of tickets and was fixed by excluding negation terms from the stopword set.
+**Negation bug**: the default English stopword list strips words like `not`, `no`, and contractions such as `isn't` and `won't`, which silently reversed ticket meaning - "software is not running" became "software running" after cleaning. This affected 12.3% of tickets and was fixed by excluding negation terms from the stopword set.
 
-The pattern behind the `language` label issue, is the same: generic NLP tooling makes assumptions that do not always hold for a specific dataset, and the only way to know is to check rather than assume.
+The pattern behind this, and behind the `language` label issue above, is the same: generic NLP tooling makes assumptions that do not always hold for a specific dataset, and the only way to know is to check rather than assume.
 
 ## Modeling
 
