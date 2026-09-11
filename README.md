@@ -46,9 +46,9 @@ A pretrained embedding approach (spaCy's GloVe-based vectors) was tested against
 
 ## Try it
 
-A Streamlit app wraps the trained pipeline: enter a subject, description, and ticket type, and it predicts the queue and priority, then surfaces similar past tickets and how they were resolved.
+A Streamlit app (app.py) wraps the trained pipeline: enter a subject, description, and ticket type, and it predicts the queue and priority, then surfaces similar past tickets and how they were resolved.
 
-Live demo: *(link goes here once deployed)*
+Not currently hosted: the tuned Random Forest models are large (200 unconstrained trees over ~8,000 features), and pushing them past GitHub's file size limit and Streamlit Cloud's free-tier memory ceiling would need either a lighter model configuration or Git LFS. The app runs locally, see Setup below.
 
 ## Project structure
 
