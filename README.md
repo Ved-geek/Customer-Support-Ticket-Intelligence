@@ -6,7 +6,7 @@ Built from first principles using TF-IDF and classical ML, with an evidence-base
 
 ## Dataset
 
-Around 21,000 English support tickets, sourced from Kaggle and combined from two files, deduplicated and cleaned. Two prediction targets: `queue` (10-class department routing, meaningfully imbalanced) and `priority` (3-class urgency, fairly balanced). A chi-square test confirmed `queue` and `priority` are not independent, which is why the `priority` model does not use `queue` as an input feature - predicting one target from another would be circular for a brand-new ticket where neither is known in advance.
+Around 21,000 English support tickets, sourced from Kaggle and combined from two files, deduplicated and cleaned. Two prediction targets: `queue` (10-class department routing, meaningfully imbalanced) and `priority` (3-class urgency, fairly balanced). A chi-square test confirmed queue and priority are not independent.
 
 The dataset's `language` label turned out to be unreliable - roughly 26% of rows tagged as German were actually English text. This was caught by running `langdetect` across the full dataset rather than trusting the label or a sample.
 
